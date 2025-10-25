@@ -1,4 +1,4 @@
-name: stack-vanilla-ts-test
+name: stack-ts-test
 
 on:
   push:
