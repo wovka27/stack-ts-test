@@ -48,7 +48,7 @@ export class Pagination extends BaseComponent<PaginationProps, PaginationState> 
   updateFromStore() {
     const meta = orgStore.getState().meta;
     const totalPages = Math.max(1, Math.ceil(meta.total / meta.perPage));
-    const newPage = meta.page > totalPages ? totalPages : meta.page; // Корректируем страницу
+    const newPage = meta.page > totalPages ? totalPages : meta.page; 
     const newMeta = { ...meta, page: newPage };
     if (newPage !== meta.page) {
       orgStore.setMeta('page', newPage);
