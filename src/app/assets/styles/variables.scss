@@ -1,0 +1,40 @@
+@use 'helpers/index' as *;
+
+:root {
+  --color-primary: #3b82f6;
+  --color-primary-hover: #2563eb;
+  --color-white: #ffffff;
+  --color-white-f9: #f9fafb;
+  --color-black: #000000;
+  --color-error: #ef4444;
+  --color-dark-blue: #374151;
+
+  --border: 1px solid;
+
+  --border-color-white: var(--color-white);
+  --border-color-gray-82-20: var(--color-gray-82-20);
+  --border-color-purple-8c: var(--color-purple-8c);
+
+  --border-radius-5: 5px;
+  --border-radius-10: 10px;
+  --border-radius-20: 20px;
+  --border-radius-60: 60px;
+  --border-radius-80: 80px;
+
+  --font-family-montserrat: 'Montserrat', sans-serif;
+  --font-family-aqum: 'Aqum', sans-serif;
+  --font-family-base: var(--font-family-montserrat);
+
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 600;
+  --font-weight-700: 700;
+
+  --transition-duration: 0.2s;
+
+  --header-height: 100px;
+
+  --container-width: 1200px;
+
+  --container-padding-x: 10px;
+}

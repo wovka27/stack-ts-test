@@ -1,0 +1,106 @@
+.ui-table__wrapper {
+    height: 100%;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ui-table {
+    height: 100%;
+    border-radius: 0.75rem;
+    border: 1px solid #e5e7eb;
+    position: relative;
+    overflow: auto;
+    display: flex;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    max-height: max-content;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.ui-table::-webkit-scrollbar {
+    display: none;
+}
+
+.ui-table table {
+    width: 100%;
+}
+
+.ui-table tbody:empty {
+    position: relative;
+    height: 30vh;
+}
+
+.ui-table tbody:empty::before {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: 'Список пуст...';
+    inset: 0;
+}
+
+.ui-table thead {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+.clickable {
+    cursor: pointer;
+}
+
+.ui-table th,
+.ui-table td {
+    padding: 0.75rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.ui-table th {
+    background-color: #f9fafb;
+    font-weight: 600;
+    color: #374151;
+}
+
+.ui-table__row--striped {
+    background-color: #f3f4f6;
+}
+
+.ui-table__row--hover:hover {
+    background-color: #e0f2fe;
+}
+
+.ui-table__empty {
+    height: 30vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ui-table__pagination {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ui-table__th {
+    user-select: none;
+    transition: color 0.2s ease;
+}
+
+.ui-table__th.sortable:hover {
+    color: #2563eb;
+}
+
+.ui-table__th.active {
+    color: #1d4ed8;
+}
+
+.ui-table__th .sort-indicator {
+    margin-left: 4px;
+    font-size: 0.8rem;
+}

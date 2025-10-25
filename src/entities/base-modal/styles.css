@@ -1,0 +1,39 @@
+.base-modal {
+    border-radius: 15px;
+    min-width: 360px;
+    border: none;
+    padding: 0;
+}
+
+.base-modal__inner {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+    border: none;
+    padding: 20px;
+}
+
+.base-modal::backdrop {
+    background-color: #0008;
+    opacity: 1;
+    transition-duration: var(--transition-duration);
+    transition-property: all;
+
+    @starting-style {
+        opacity: 0;
+    }
+}
+
+.base-modal__title {
+    color: var(--color-dark);
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 100%;
+}
+
+.base-modal-footer {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}

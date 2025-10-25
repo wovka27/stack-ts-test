@@ -1,0 +1,105 @@
+@use 'helpers/index' as *;
+@use 'variables' as *;
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body {
+  font-family: var(--font-family-base);
+  letter-spacing: 0.3px;
+  line-height: 1;
+  height: 100%;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  padding: 20px;
+}
+
+main:not([class]) {
+  flex-grow: 1;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3,
+h4,
+.h4,
+h5,
+.h5,
+h6,
+.h6 {
+  font-weight: 600;
+}
+
+h1,
+.h1 {
+  @include fluid-text(45, 32);
+}
+
+h2,
+.h2 {
+  @include fluid-text(58, 28);
+
+  line-height: 1.3;
+}
+
+h3,
+.h3 {
+  @include fluid-text(40, 24);
+}
+
+h4,
+.h4 {
+  @include fluid-text(26, 18);
+}
+
+h5,
+.h5 {
+  @include fluid-text(24, 18);
+}
+
+h6,
+.h6 {
+  @include fluid-text(20, 16);
+}
+
+a,
+button,
+label,
+input,
+textarea,
+select,
+svg * {
+  transition-duration: var(--transition-duration);
+}
+
+a {
+  color: inherit;
+
+  &[class] {
+    text-decoration: none;
+  }
+}
+
+a,
+button {
+  &[aria-label] {
+    position: relative;
+
+    &::before {
+      @include abs-center;
+      @include square(44px);
+
+      content: '';
+    }
+  }
+}

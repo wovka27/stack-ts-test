@@ -1,0 +1,16 @@
+.organization-table {
+    display: flex;
+    overflow: auto;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.organization-table__header {
+    display: flex;
+    gap: 20px;
+}
+
+.organization-table__body {
+    height: 100%;
+    overflow: auto;
+}

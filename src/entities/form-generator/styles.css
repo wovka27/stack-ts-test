@@ -1,0 +1,8 @@
+.ui-form, .ui-form__group {
+    display: flex;
+    gap: 10px;
+}
+
+.ui-form {
+    flex-direction: column;
+}
