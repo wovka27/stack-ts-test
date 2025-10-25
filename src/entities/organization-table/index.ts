@@ -59,6 +59,7 @@ export default class OrganizationTable
 
   get list(): IOrganization[] {
     const filtered = this.filterList(this.state.list, orgStore.getState().search);
+
     return filtered;
   }
 
@@ -138,12 +139,11 @@ export default class OrganizationTable
       sort: ISort<IOrganization>;
     };
 
-    if (!sort) return
+    if (!sort) return;
     orgStore.setState({ ...orgStore.getState(), sort: sort });
   };
 
   render(_state: IOrganizationTableState, props: IOrganizationTableProps) {
-
     const children: VNode<IOrganizationTableProps>[] = [
       this.h(
         'div',
@@ -167,7 +167,7 @@ export default class OrganizationTable
         this.h(Table<IOrganization>, {
           perPageOptions,
           columns: columnsRegistry,
-          rows: _state.list,
+          rows: this.list,
           sort: this.sort,
           pagination: this.meta,
           stiped: true,
@@ -185,7 +185,7 @@ export default class OrganizationTable
               variant: 'outline',
               onClick: (event: Event) => this.onRemove(event, row),
               key: `delete-${row.name}-${row.phone}`,
-            })
+            }),
           ],
           transformColumn: {
             address: this.transformColumnAddress,
@@ -193,16 +193,12 @@ export default class OrganizationTable
           key: 'org-table',
         })
       ),
-    ] 
+    ];
 
     if (_state.list.length) {
-      children.push(this.h(Pagination, { key: 'pagination' }))
+      children.push(this.h(Pagination, { key: 'pagination' }));
     }
 
-    return this.h(
-      'div',
-      { class: 'organization-table container', key: 'organization-table' },
-      ...children
-    ) 
+    return this.h('div', { class: 'organization-table container', key: 'organization-table' }, ...children);
   }
 }
