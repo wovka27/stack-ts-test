@@ -94,6 +94,14 @@ export class Pagination extends BaseComponent<PaginationProps, PaginationState> 
     historyService.push({ perPage });
   }
 
+  protected shouldComponentUpdate(_: PaginationProps, nextState: PaginationState): boolean {
+    const shouldUpdate =
+      this.state.page !== nextState.page ||
+      this.state.total !== nextState.total ||
+      this.state.perPage !== nextState.perPage;
+    return shouldUpdate;
+  }
+
   render(state: PaginationState): VNode<PaginationProps> {
     const dots = Array.from({ length: this.total }, (_, i) => {
       const page = i + 1;
@@ -163,13 +171,5 @@ export class Pagination extends BaseComponent<PaginationProps, PaginationState> 
         })
       )
     ) 
-  }
-
-  protected shouldComponentUpdate(_: PaginationProps, nextState: PaginationState): boolean {
-    const shouldUpdate =
-      this.state.page !== nextState.page ||
-      this.state.total !== nextState.total ||
-      this.state.perPage !== nextState.perPage;
-    return shouldUpdate;
   }
 }
