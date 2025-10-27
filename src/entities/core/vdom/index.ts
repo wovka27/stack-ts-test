@@ -23,12 +23,16 @@ export class VDom {
     ...children: (VNode<P> | string)[]
   ): VNode<P> {
     const flatChildren = children.flatMap((child) =>
-      typeof child === 'string' ? new VNode('text', { text: child }) as unknown as string : child
+      typeof child === 'string' ? (new VNode('text', { text: child }) as unknown as string) : child
     );
     return new VNode(type, { ...props, children: flatChildren } as VNodeProps<P>, flatChildren);
   }
 
   public mount<P>(vnode: VNode<P> | string, container: HTMLElement, clearContainer: boolean = false): Node {
+    if (typeof vnode !== 'string' && vnode.dom && vnode.dom.isConnected) {
+      return vnode.dom;
+    }
+
     if (clearContainer) {
       while (container.firstChild) {
         this.unmount(container.firstChild);
