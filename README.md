@@ -1,4 +1,4 @@
-# Stack Vue Vanilla TS Test
+# Stack TS Test
 
 ## 📦 Установка и запуск
 
